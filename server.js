@@ -4,6 +4,13 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 app.use(cors());
+
+cors.options({
+    origin: "*",  // Allow all origins for CORS
+    methods: "POST, GET, OPTIONS",  // Allow POST, GET, and OPTIONS methods
+    allowedHeaders: "Content-Type, Authorization"  // Allow specific headers
+})
+
 app.use(bodyParser.json({ limit: '10mb' }));  // Add bodyParser to handle large images
 
 app.post("/analyze", async (req, res) => {
