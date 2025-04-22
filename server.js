@@ -3,15 +3,15 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-app.use(cors());
-
-cors.options({
-    origin: "*",  // Allow all origins for CORS
+// Use CORS middleware globally with options
+app.use(cors({
+    origin: "*",
     methods: "POST, GET, OPTIONS",  // Allow POST, GET, and OPTIONS methods
     allowedHeaders: "Content-Type, Authorization"  // Allow specific headers
-})
+}));
 
-app.use(bodyParser.json({ limit: '10mb' }));  // Add bodyParser to handle large images
+// Use body-parser to handle large images
+app.use(bodyParser.json({ limit: '10mb' }));
 
 app.post("/analyze", async (req, res) => {
     const imageBase64 = req.body.image;  // Get the base64 image from the request body
