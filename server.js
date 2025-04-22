@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 // Use CORS middleware globally with options
 app.use(cors({
     origin: [
-        "http://127.0.0.1:5501'",
+        "http://127.0.0.1:5501",
         "https://plant-disease-detector-frontend.vercel.app/",
     ],
     methods: "POST, GET, OPTIONS",  // Allow POST, GET, and OPTIONS methods
